@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
 import Followers from './Followers';
+
 const User = () => {
-  return <h2>search component</h2>;
+  return (
+    <Fragment>
+      <section className="section">
+        <Wrapper className="section-center">
+          {/* Card Component */}
+          <Card></Card>
+          {/* Followers Component */}
+          <Followers></Followers>
+        </Wrapper>
+      </section>
+    </Fragment>
+  );
 };
 
 const Wrapper = styled.div`
