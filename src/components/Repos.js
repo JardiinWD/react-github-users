@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { GithubContext } from '../context/context';
 import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
+
 const Repos = () => {
-  return <h2>repos component</h2>;
+  const { repos } = useContext(GithubContext)
+
+  const chartData = [
+    {
+      label: "HTML",
+      value: "13"
+    },
+    {
+      label: "CSS",
+      value: "23"
+    },
+    {
+      label: "Javascript",
+      value: "80"
+    },
+  ];
+
+  return (
+    <section className="section">
+      <Wrapper className="section-center">
+        <ExampleChart data={chartData} />
+      </Wrapper>
+    </section>
+  );
 };
 
+/* Wrapper component */
 const Wrapper = styled.div`
   display: grid;
   justify-items: center;
