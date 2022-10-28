@@ -5,6 +5,20 @@ import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
 
 const Repos = () => {
   const { repos } = useContext(GithubContext)
+  // Selecting all my languages
+  let languages = repos.reduce((total, item) => {
+    // Selecting the "language" voice from items
+    const { language } = item
+    // Statement if for the null result
+    if (!language) return total;
+    if (!total[language]) {
+      total[language] = 1
+    }
+    total[language] = 30
+    return total
+  }, {})
+
+  console.log(languages);
 
   const chartData = [
     {
@@ -24,7 +38,7 @@ const Repos = () => {
   return (
     <section className="section">
       <Wrapper className="section-center">
-        <ExampleChart data={chartData} />
+        <Pie3D data={chartData} />
       </Wrapper>
     </section>
   );
