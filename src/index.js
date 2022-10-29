@@ -13,7 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider domain="dev-gx7ypnxahibu0t27.us.auth0.com"
       clientId="NB4HF5yfNqX6LPQC8oq4LRmPwwtdpuGG"
-      redirectUri={window.location.origin}>
+      redirectUri={window.location.origin}
+      cacheLocation='localstorage'
+    >
       {/* My app component wrapped between the provider */}
       <GithubProvider>
         <App />

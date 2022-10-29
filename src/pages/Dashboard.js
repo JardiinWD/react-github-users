@@ -4,12 +4,10 @@ import loadingImage from '../images/preloader.gif';
 import { GithubContext } from '../context/context';
 
 const Dashboard = () => {
-
+  // Destructuring of useContext
   const { loading } = useContext(GithubContext)
-  console.log(loading);
 
   if (loading) {
-
     return (
       <Fragment>
         {/* Navbar Component */}

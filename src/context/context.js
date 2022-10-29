@@ -39,7 +39,7 @@ const GithubProvider = ({ children }) => {
     const searchGithubUser = async (user) => {
         toggleErrorHandling() // With the default value
         setLoading(true) // Managing the 
-        const response = await axios(`${rootUrl}/users/${user}`).catch(err => console.log(err))
+        const response = await axios(`${rootUrl}/users/${user}`).catch(err => console.error(err))
         // If I received some data I finally manage my github user
         if (response) {
             // Update the current state of githubuser

@@ -7,7 +7,7 @@ const Search = () => {
   const [user, setUser] = useState('')
   // Get the requests from context
   const { requests, error, searchGithubUser, loading } = useContext(GithubContext)
-  console.log(requests, error); // Output 60 <-- these are the max number of requests
+  // console.log(requests, error); // Output 60 <-- these are the max number of requests
 
   // Get things from global context
   const handleSubmit = (e) => {
@@ -21,7 +21,7 @@ const Search = () => {
 
   // Your Handler Arrow Function
   const changeHandler = (event) => {
-    console.log(user);
+    // console.log(user);
     setUser(event.target.value)
   }
 

@@ -40,7 +40,6 @@ const UserInfo = () => {
       color: 'yellow'
     },
   ]
-  console.log(items);
 
   return (
     <Fragment>
