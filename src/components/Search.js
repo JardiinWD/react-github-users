@@ -6,7 +6,7 @@ const Search = () => {
   // useState method for research
   const [user, setUser] = useState('')
   // Get the requests from context
-  const { requests, error, searchGithubUser } = useContext(GithubContext)
+  const { requests, error, searchGithubUser, loading } = useContext(GithubContext)
   console.log(requests, error); // Output 60 <-- these are the max number of requests
 
   // Get things from global context
@@ -43,7 +43,7 @@ const Search = () => {
             <div className="form-control">
               <MdSearch />
               <input type="text" placeholder='Enter Github user' value={user} onChange={changeHandler} />
-              {requests > 0 && <button type='submit'>Search</button>}
+              {requests > 0 && !loading && <button type='submit'>Search</button>}
             </div>
           </form>
           <h3>Requests : {requests} / 60</h3>
