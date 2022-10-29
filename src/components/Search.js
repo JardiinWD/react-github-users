@@ -1,9 +1,56 @@
-import React from 'react';
+import React, { useState, Fragment, useContext } from 'react';
 import styled from 'styled-components';
 import { MdSearch } from 'react-icons/md';
 import { GithubContext } from '../context/context';
 const Search = () => {
-  return <h2>search component</h2>;
+  // useState method for research
+  const [user, setUser] = useState('')
+  // Get the requests from context
+  const { requests, error, searchGithubUser } = useContext(GithubContext)
+  console.log(requests, error); // Output 60 <-- these are the max number of requests
+
+  // Get things from global context
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (user) {
+      searchGithubUser(user)
+      setUser('') // Clearing input field
+    }
+
+  }
+
+  // Your Handler Arrow Function
+  const changeHandler = (event) => {
+    console.log(user);
+    setUser(event.target.value)
+  }
+
+  return (
+    <Fragment>
+      {/* section */}
+      <section className="section">
+        {/* section-center */}
+        <Wrapper className="section-center">
+          {/* Error Wrapper */}
+          {
+            error.show &&
+            <ErrorWrapper>
+              <p>{error.msg}</p>
+            </ErrorWrapper>
+          }
+          <form onSubmit={handleSubmit}>
+            {/* form-control */}
+            <div className="form-control">
+              <MdSearch />
+              <input type="text" placeholder='Enter Github user' value={user} onChange={changeHandler} />
+              {requests > 0 && <button type='submit'>Search</button>}
+            </div>
+          </form>
+          <h3>Requests : {requests} / 60</h3>
+        </Wrapper>
+      </section>
+    </Fragment>
+  );
 };
 
 const Wrapper = styled.div`

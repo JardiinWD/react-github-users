@@ -44,7 +44,6 @@ const Repos = () => {
   }).slice(0, 5)
 
   // Most Stars / Forks
-
   let { stars, forks } = repos.reduce((total, item) => {
     // Destructuring of Item
     const { stargazers_count, name, forks } = item;
